@@ -1,0 +1,32 @@
+{
+  "inbounds": [{
+    "port": 1080,  // SOCKS 代理端口，在浏览器中需配置代理并指向这个端口
+    "listen": "127.0.0.1",
+    "protocol": "socks",
+    "settings": {
+      "udp": true
+    }
+  }],
+  "outbounds": [{
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [{
+        "address": "", // 服务器地址，请修改为你自己的服务器 ip 或域名
+        "port": 6214,  // 服务器端口
+        "users": [{ "id": "55aa5f4b-77c0-4ce5-9ff5-eb64aadccc2c"}]
+      }]
+    }
+  },{
+    "protocol": "freedom",
+    "tag": "direct",
+    "settings": {}
+  }],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [{
+      "type": "field",
+      "ip": ["geoip:private"],
+      "outboundTag": "direct"
+    }]
+  }
+}
