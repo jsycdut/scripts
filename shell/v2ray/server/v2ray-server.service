@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple v2ray server-side service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/v2ray/bin/v2ray -c /v2ray/config/config.json
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
