@@ -12,12 +12,16 @@ if [[ `id -u` != 0 ]]; then
   exit -1
 fi
 
-$pm install -y v2ray
+if [[ $pm == "pacman" ]]; then
+  $pm -S v2ray -y
+else
+  $pm install v2ray -y
+fi
 
 cp `command -v  v2ray` /usr/bin
 cp `command -v v2rayctl` /usr/bin
 
 mkdir /etc/v2ray
-cp $BASE_DIR/config.json /etc/v2ray
 
+cp $BASE_DIR/config.json /etc/v2ray
 cp $BASE_DIR/v2ray-client.service /lib/systemd/system
