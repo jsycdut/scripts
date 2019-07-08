@@ -5,7 +5,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/v2ray/bin/v2ray -c /v2ray/config/config.json
+ExecStart=/v2ray/bin/v2ray -config /v2ray/config/config.json
 Restart=on-failure
 
 [Install]
