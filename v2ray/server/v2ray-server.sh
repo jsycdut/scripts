@@ -42,14 +42,21 @@ esac
 tar -xf $V2RAY_HOME/go.tar.gz -C $V2RAY_HOME
 export PATH=$PATH:$V2RAY_HOME/go/bin
 
+export GOPATH=$V2RAY_HOME
+
 echo "=======================   Building v2ray   ====================="
-echo "getting v2ray source files..."
+echo "Getting v2ray source files..."
 go get -u v2ray.com/core/...
-echo "building v2ray..."
+echo "Building v2ray..."
 go build -o $V2RAY_HOME/bin/v2ray v2ray.com/core/main
-echo "building v2ctl..."
+echo "Building v2ctl..."
 go build -o $V2RAY_HOME/bin/v2ctl v2ray.com/core/infra/control/main
 
 echo "=======================  Configuring v2ray ====================="
 mkdir $V2RAY_HOME/config && cp $BASE_DIR/config.json $V2RAY_HOME/config
 cp v2ray-server.service /lib/systemd/system
+cp `find $V2RAY_HOME -name 'geoip.dat'` $V2RAY_HOME/bin
+cp `find $V2RAY_HOME -name 'geosite.dat'` $V2RAY_HOME/bin
+
+# Start v2ray
+systemctl start v2ray-server.service
