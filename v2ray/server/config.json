@@ -26,54 +26,5 @@
     "protocol": "blackhole",
     "settings": {},
     "tag": "blocked"
-  }],
-  "routing": {
-    "domainStrategy": "IPOnDemand",
-    "rules":[
-      {
-        "type": "field",
-        "ip": ["geoip:private"],
-        "outboundTag": "blocked"
-      },
-      {
-        "type": "field",
-        "domain": ["geosite:category-ads"],
-        "outboundTag": "blocked"
-      }
-    ]
-  },
-
-  "dns": {
-    "hosts": {
-      "domain:v2ray.com": "www.vicemc.net",
-      "domain:github.io": "pages.github.com",
-      "domain:wikipedia.org": "www.wikimedia.org",
-      "domain:shadowsocks.org": "electronicsrealm.com"
-    },
-    "servers": [
-      "1.1.1.1",
-      {
-        "address": "114.114.114.114",
-        "port": 53,
-        "domains": [
-          "geosite:cn"
-        ]
-      },
-      "8.8.8.8",
-      "localhost"
-    ]
-  },
-
-  "policy": {
-    "levels": {
-      "0": {
-        "uplinkOnly": 0,
-        "downlinkOnly": 0
-      }
-    },
-    "system": {
-      "statsInboundUplink": false,
-      "statsInboundDownlink": false
-    }
-  }
+  }]
 }
