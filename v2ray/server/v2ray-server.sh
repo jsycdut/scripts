@@ -9,8 +9,8 @@ NOT_ROOT=2
 BASE_DIR=$(pwd)
 
 ARCH=$(uname -m)
-GO_AMD64=https://storage.googleapis.com/golang/go1.11.1.linux-amd64.tar.gz
-GO_X86=https://storage.googleapis.com/golang/go1.11.1.linux-386.tar.gz
+GO_AMD64=https://storage.googleapis.com/golang/go1.12.4.linux-amd64.tar.gz
+GO_X86=https://storage.googleapis.com/golang/go1.12.4.linux-386.tar.gz
 
 ## systemctl check
 if ! `command -v systemctl > /dev/null 2>&1`; then
@@ -27,6 +27,7 @@ fi
 ## Arch check
 echo "=====================Downloading Essential Files================="
 
+mkdir /v2ray
 V2RAY_HOME=/v2ray
 
 case $ARCH in
@@ -39,11 +40,14 @@ case $ARCH in
 esac
 
 tar -xf $V2RAY_HOME/go.tar.gz -C $V2RAY_HOME
-export PATH=$PATH:$V2RAY_HOME/go
+export PATH=$PATH:$V2RAY_HOME/go/bin
 
 echo "=======================   Building v2ray   ====================="
+echo "getting v2ray source files..."
 go get -u v2ray.com/core/...
+echo "building v2ray..."
 go build -o $V2RAY_HOME/bin/v2ray v2ray.com/core/main
+echo "building v2ctl..."
 go build -o $V2RAY_HOME/bin/v2ctl v2ray.com/core/infra/control/main
 
 echo "=======================  Configuring v2ray ====================="
