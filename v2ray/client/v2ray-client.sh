@@ -23,5 +23,12 @@ cp `command -v v2rayctl` /usr/bin
 
 mkdir /etc/v2ray
 
+# TODO use sed to write config.json
+
 cp $BASE_DIR/config.json /etc/v2ray
 cp $BASE_DIR/v2ray-client.service /lib/systemd/system
+
+systemctl enable v2ray-client.service
+systemctl start v2ray-client.service
+
+echo "Done."
