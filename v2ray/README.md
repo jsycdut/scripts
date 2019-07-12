@@ -43,3 +43,9 @@ $ sudo bash client.sh
 
 ## 银弹？？
 选个延迟低一点的节点比什么加速技术都强...
+
+## 羊毛
+一些VPS厂家提供了新用户优惠，通过下面的链接注册新账号并激活就可以获取对应的优惠链接，当然，除了下面的俩，还有Google Cloud Platform提供的300$优惠，不过那个不太容易搞。
+
+* [Vultr 10$ 优惠注册链接](https://www.vultr.com/?ref=7171540)
+* [Digital Ocean 50$ 优惠注册链接](https://m.do.co/c/35b1ee44c559)
