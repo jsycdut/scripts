@@ -8,12 +8,12 @@ command -v yum > /dev/null 2 >& 1 && pm="yum"
 command -v pacman > /dev/null 2 >& 1 && pm="pacman"
 
 if [[ `id -u` != 0 ]]; then
-  echo "This script neede to be executed as root"
+  echo "This script needed to be executed as root"
   exit -1
 fi
 
 if [[ $pm == "pacman" ]]; then
-  $pm -S v2ray -y
+  $pm -S v2ray
 else
   $pm install v2ray -y
 fi
