@@ -39,7 +39,8 @@ case $ARCH in
     ;;
 esac
 
-tar -xf go.tar.gz -C $V2RAY_HOME
+cd $V2RAY_HOME
+tar -xf go.tar.gz
 
 export PATH=$PATH:$V2RAY_HOME/go/bin
 export GOPATH=$V2RAY_HOME
