@@ -1,25 +1,21 @@
 #!/bin/bash
 
 BASE_DIR=`pwd`
-pm=""
-
-command -v apt > /dev/null 2 >& 1 && pm="apt"
-command -v yum > /dev/null 2 >& 1 && pm="yum"
-command -v pacman > /dev/null 2 >& 1 && pm="pacman"
 
 if [[ `id -u` != 0 ]]; then
   echo "This script needed to be executed as root"
   exit -1
 fi
 
-if [[ $pm == "pacman" ]]; then
-  $pm -S v2ray
-else
-  $pm install v2ray -y
+command -v unzip > /dev/null 2>&1
+if [[ $? != 0 ]]; then
+  echo "unzip: command not found, PLEASE install unzip first."
+  exit -1
 fi
 
-cp `command -v  v2ray` /usr/bin
-cp `command -v v2rayctl` /usr/bin
+curl -Lo v2ray.zip https://github.com/v2ray/v2ray-core/releases/download/v4.20.0/v2ray-linux-64.zip
+
+mkdir /v2ray && unzip v2ray.zip -d /v2ray
 
 mkdir /etc/v2ray
 
