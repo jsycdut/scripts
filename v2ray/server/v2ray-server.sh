@@ -66,6 +66,7 @@ cp `find $GOPATH -name 'geosite.dat'` $V2RAY_HOME/bin
 
 # TODO: BBR probe and apply
 
+systemctl enable v2ray-server.service
 # Start v2ray
 systemctl start v2ray-server.service
 
