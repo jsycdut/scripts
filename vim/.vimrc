@@ -120,88 +120,39 @@ set termencoding=utf-8                      "告诉vim你目前使用的terminal
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"vim插件配置
+" vim插件配置 使用 vim-plug作为插件管理器
+" 查看https://github.com/junegunn/vim-plug进行安装
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.local/share/nvim/plugged')
 
-"设置运行时路径包含vundle插件并且初始化,此处起作用之前提在于你已下载好vundle插件
-"相关命令为`git clone https://github.com/vundlevim/vundle.vim.git ~/.vim/bundle/vundle.vim`
+Plug 'ryanoasis/vim-devicons'    "文档图标
 
+Plug 'scrooloose/nerdtree' " 目录插件
 
-set rtp+=~/.vim/bundle/Vundle.vim	
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTree文件类型语法高亮
 
-call vundle#begin()                "开始插件管理,这是必备声明,表明接下里你可以声明你需要的插件了                                  
-                                   "关于这里声明插件的格式为: key-word '插件名',                                   
-                                   "这里的keyword和你的vundle版本有关	                                   
-                                   "若vundle版本 < 0.10.2，key-word为bundle                                   
-                                   "若bundle版本 > 0.10.2，key-word为plugin                                   
-                                                                                                                         
-                                   " 可以从以下网站找到好用的vim 插件                                   
-                                   " [vim awesome](https://vimawesome.com)                                               
-                                   " [github](https://github.com)                                                        
-                                   " [vim scripts](http://www.vim.org/scripts/)                                          
-                                   " [best of vim](http://www.bestofvim.com/plugin/)
-   
+Plug 'scrooloose/syntastic'      "语法检测，保存代码时检验语法错误
 
-Plugin 'vundlevim/vundle.vim'      "声明使用vundle插件
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
-Plugin 'ervandew/supertab'         "关键字补全插件，不过感觉是用的猜的办法，因为没写过的关键字一概猜不出来
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+r
+Plug 'junegunn/fzf.vim' " Fuzzy finde
 
-Plugin 'bling/vim-airline'         "状态栏插件，显示当前操作模式,当前文件名,行数列数等信息
+Plug 'Chiel92/vim-autoformat' " 自动代码格式化插件
 
-Plugin 'scrooloose/syntastic'      "语法检测，保存代码时检验语法错误
-
-Plugin 'scrooloose/nerdcommenter'  "注释插件，用来注释代码
-
-Plugin 'scrooloose/nerdtree'       "大名鼎鼎的文件系统插件，用来在vim中显示文件系统,命令:ex也有类似功能
-
-Plugin 'jiangmiao/auto-pairs'      "自动括号补全插件
-
-Plugin 'altercation/solarized'     "solarized配色主题
-
-Plugin 'Xuyuanp/nerdtree-git-plugin' "NERDTree 的git状态插件
-
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTree文件类型语法高亮
-
-Plugin 'alvan/vim-closetag'                      "用于XML和HTML系列的标签补全
-
-"Plugin 'valloric/youcompleteme'    "代码补全插件,这是一个杀手级别的插件,如果你报错了,那么可就太正常了,可以参考它的文档
-                                   "安装方法 ubuntu 16.04，依序执行如下命令
-                                   "
-                                   "sudo apt-get install build-essential cmake
-                                   "
-                                   "cd ~/.vim/bundle/youcompleteme
-                                   "
-                                   "./install.py --all
-                                   "
-                                   "这里跟网络环境有关，或许需要科学上网
-                                   "
-                                   "./install.py 后面跟的参数是可调的
-                                   "
-                                   "对应语言支持选项有
-                                   "
-                                   "c系列语言 --clang-completer
-                                   "go --go-completer
-                                   "java --java-conpleter
-                                   "
-                                   "--all意为安装所有支持，包括但不限于上面列出的语言
-                                   "执行安装的时候如果碰上了git子模块为空的情况，按照提示执行初始化子模块的命令即可
-
-Plugin 'ryanoasis/vim-devicons'    "美妙的文档图标
-
-call vundle#end()                   "插件声明结束
-                                
+call plug#end()
                                  
                                  
 "vim script配置
                                 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vim键盘映射配置                                                                                
-                                                                                                                                                 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                                 
                                  
 map <f2> : NERDTreeToggle<cr>       "映射f2键打开和关闭nerdtree
+map <f3> : Autoformat<cr> "f3 格式化代码
 
-let g:ycm_global_ycm_extra_conf = '/home/jsy/.vim/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
