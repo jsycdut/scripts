@@ -149,7 +149,7 @@ Plug 'PotatoesMaster/i3-vim-syntax' " i3 syntax highlight
 
 Plug 'Chiel92/vim-autoformat' " 自动代码格式化插件
 
-Plug 'tpop/vim-fugitive' " vim plugin by tpop
+Plug 'tpope/vim-fugitive' " vim plugin by tpope
 
 call plug#end()
                                  
