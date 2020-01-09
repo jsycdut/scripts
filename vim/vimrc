@@ -154,17 +154,23 @@ Plug 'tpope/vim-fugitive' " vim plugin by tpope
 call plug#end()
                                  
                                  
-"vim script配置
-                                
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim键盘映射配置                                                                                
+"vim键盘映射配置 :help mapmode                                                                                
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                                 
 
-" panel traverse
+""""""""""""""""""""" panel traverse start
+" use traditional h j k l
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" use arrow keys to do so
+map <C-Up> <C-w>k
+map <C-Down> <C-w>j
+map <C-Left> <C-w>h
+map <C-Right> <C-w>l
+""""""""""""""""""""" panel traverse end
 
 " plugin
 map <f2> : NERDTreeToggle<CR>       "映射f2键打开和关闭nerdtree
