@@ -149,13 +149,25 @@ Plug 'PotatoesMaster/i3-vim-syntax' " i3 syntax highlight
 
 Plug 'Chiel92/vim-autoformat' " 自动代码格式化插件
 
-Plug 'tpope/vim-fugitive' " vim plugin for git by vim plugin artist tpope
+Plug 'tpope/vim-fugitive' " git plugin for vim, by tpope
 
-Plug 'majutsushi/tagbar' " using ctag files to show the encapsulation of the code file, like out line in eclipse or strcture in Intellij, this plugin uses ctag files
+Plug 'tpope/vim-surround' " surround content with quotes or something, another plugin by tpope
+
+"Plug 'junegunn/fzf' " fuzzy finder, you don't need to find file in nerd tree, or path+=** to enlarge the file search range, sometimes this plugin will be dangerous
+
+Plug 'uguu-org/vim-matrix-screensaver' " matrix screen saver, actually useless cause you don't need it
+
+Plug 'majutsushi/tagbar' " using ctag files to show the encapsulation of the code file, like out line in eclipse or strcture in Intellij
 
 Plug 'itchyny/lightline.vim' " status bar, like vim airline
 
 "Plug 'vim-airline/vim-airline' " vim air-line, classic airline status bar
+
+Plug 'mhinz/vim-startify' " fancy start screen for vim
+
+Plug 'yonchu/accelerated-smooth-scroll' " much more smooth scrool for <C-u> <C-d> <C-f> <C-b> etc.
+
+Plug 'jiangmiao/auto-pairs' " auto pairs, for better pairs edit experience, this is amazing
 
 call plug#end()
                                  
