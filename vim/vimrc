@@ -149,7 +149,13 @@ Plug 'PotatoesMaster/i3-vim-syntax' " i3 syntax highlight
 
 Plug 'Chiel92/vim-autoformat' " 自动代码格式化插件
 
-Plug 'tpope/vim-fugitive' " vim plugin by tpope
+Plug 'tpope/vim-fugitive' " vim plugin for git by vim plugin artist tpope
+
+Plug 'majutsushi/tagbar' " using ctag files to show the encapsulation of the code file, like out line in eclipse or strcture in Intellij, this plugin uses ctag files
+
+Plug 'itchyny/lightline.vim' " status bar, like vim airline
+
+"Plug 'vim-airline/vim-airline' " vim air-line, classic airline status bar
 
 call plug#end()
                                  
@@ -173,6 +179,7 @@ map <C-Right> <C-w>l
 """"""""""""""""""""" panel traverse end
 
 " plugin
+map <f1> : TagbarToggle<CR> "f1 => 打开tag outline
 map <f2> : NERDTreeToggle<CR>       "映射f2键打开和关闭nerdtree
 map <f3> : Autoformat<CR> "f3 格式化代码
 map <f4> : MarkdownPreview "f4 markdown prview
