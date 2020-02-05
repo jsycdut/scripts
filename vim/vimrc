@@ -169,6 +169,8 @@ Plug 'yonchu/accelerated-smooth-scroll' " much more smooth scrool for <C-u> <C-d
 
 Plug 'jiangmiao/auto-pairs' " auto pairs, for better pairs edit experience, this is amazing
 
+Plug 'justinmk/vim-sneak' "The missing motion for Vim, by justinmk, neovim maintainer
+
 call plug#end()
                                  
                                  
