@@ -1,23 +1,29 @@
-#! /bin/bash -e
+#! /bin/bash
 
-# alias
-alias e="vim"
+# systemctl
 alias ss="sudo systemctl"
 alias stop="sudo systemctl stop"
 alias start="sudo systemctl start"
 alias status="sudo systemctl status"
 alias restart="sudo systemctl restart"
 
-# install sdkman and java scala sbt kotlin groovy gradle maven in subshell
-curl -s "https://get.sdkman.io" | bash
+# paths
+alias 2..='cd ../../'
+alias 3..='cd ../../..'
+alias 4..='cd ../../../..'
+alias 5..='cd ../../../../..'
+alias 6..='cd ../../../../../..'
 
-(
-  sdk install java
-  sdk install scala
-  sdk install kotlin
-  sdk install groovy
-  sdk instann gradle
-  sdk instann maven
-  sdk instann sbt
-)
+# tools
+alias e='nvim'
+alias f='fzf'
+alias r='ranger'
+alias t='tmux new -s workspace -n base'
+alias vim='nvim'
 
+# auto fullscreen for gnome-terminal
+alias gnome-terminal='gnome-terminal --full-screen'
+
+# variables
+export http_proxy="http://127.0.0.1:8118"
+export https_proxy="http://127.0.0.1:8118"
