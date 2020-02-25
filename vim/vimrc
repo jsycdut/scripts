@@ -24,6 +24,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader="," "leader key
 
+set bg=dark
+
 set clipboard=unnamed "use universal clipboard, both vim and system clipboard
 
 set wildmenu          "cmd line completion
@@ -171,6 +173,8 @@ Plug 'jiangmiao/auto-pairs' " auto pairs, for better pairs edit experience, this
 
 Plug 'justinmk/vim-sneak' "The missing motion for Vim, by justinmk, neovim maintainer
 
+Plug 'alvan/vim-closetag' " close tags for me
+
 call plug#end()
                                  
                                  
@@ -197,7 +201,18 @@ map <f1> : TagbarToggle<CR> "f1 => 打开tag outline
 map <f2> : NERDTreeToggle<CR>       "映射f2键打开和关闭nerdtree
 map <f3> : Autoformat<CR> "f3 格式化代码
 map <f4> : MarkdownPreview "f4 markdown prview
-map <leader>c :Goyo \| set bg=light \| set linebreak<CR> " ,c to centerlize vim
+map <leader>c :Goyo \| set bg=dark \| set linebreak<CR> " ,c to centerlize vim
 
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
+" change vertical split bar
+highlight VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE
+
+" remove NERDTree folder icon cause we use vim-devicon
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+
+"close-tag
+let g:closetag_filenames = '*.xml, *.html'
+let g:closetag_shortcut = '>'
